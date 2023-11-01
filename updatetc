@@ -1,0 +1,57 @@
+#!/bin/sh
+
+ifname="eth1"
+loss=$(cat loss)
+delay=$(cat delay)
+duplicate=$(cat duplicate)
+corrupt=$(cat corrupt)
+reorder=$(cat reorder)
+str=""
+changed=0
+
+if [ $loss = "0" ]; then
+  echo "no loss"
+else
+  echo "loss is $loss"
+  str=$str" loss "$loss"%"
+  changed=1
+fi
+
+if [ $delay = "0" ]; then
+  echo "no delay"
+else
+  echo "delay is $delay"
+  str=$str" delay "$delay"ms"
+  changed=1
+fi
+if [ $duplicate = "0" ]; then
+  echo "no duplication"
+else
+  str=$str" duplicate "$duplicate"%"
+  changed=1
+fi
+if [ $corrupt = "0" ]; then
+  echo "no corrupted packets"
+else
+  str=$str" corrupt "$corrupt"%"
+  changed=1
+fi
+if [ $reorder = "0" ]; then
+  echo "no packet reordering"
+else
+  str=$str" reorder "$reorder"%"
+  changed=1
+fi
+
+
+echo "clearing config..."
+`tc qdisc del dev $ifname root netem 2>/dev/null`
+echo "cleared"
+
+echo "setting$str"
+
+if [ $changed = 1 ]; then
+#  echo "tc qdisc add dev $ifname root netem$str"
+  `tc qdisc add dev $ifname root netem$str`
+fi
+echo "done."

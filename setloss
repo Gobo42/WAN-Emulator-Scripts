@@ -1,0 +1,11 @@
+#!/bin/sh
+
+loss="0"
+
+if [ -z $1 ]; then
+  echo "no argument. setting to 0"
+else
+  loss=$1
+fi
+echo $loss > loss
+./updatetc
