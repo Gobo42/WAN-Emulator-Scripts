@@ -1,0 +1,19 @@
+{
+  "name": "Duplicate Packets",
+  "script_path": "/opt/scripts/setdup",
+  "working_directory": "/opt/scripts",
+  "description": "Configure duplicate packets on WAN",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Duplicate (%)",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "100",
+      "pass_as": "argument"
+    }
+  ]
+}

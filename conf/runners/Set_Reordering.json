@@ -1,0 +1,19 @@
+{
+  "name": "Packet Reordering",
+  "script_path": "/opt/scripts/setreorder",
+  "working_directory": "/opt/scripts",
+  "description": "Set the number of packets received out of order as a percentage",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Reordering (%)",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "100",
+      "pass_as": "argument"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Clear WAN Settings",
+  "script_path": "/opt/scripts/cleartc",
+  "working_directory": "/opt/scripts",
+  "description": "Clear all WAN emulation settings",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": []
+}

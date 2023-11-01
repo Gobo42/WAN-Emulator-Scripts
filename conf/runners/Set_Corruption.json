@@ -1,0 +1,19 @@
+{
+  "name": "Link Corruption",
+  "script_path": "/opt/scripts/setcorrupt",
+  "working_directory": "/opt/scripts",
+  "description": "Set Corruption on the WAN",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Corruption (%)",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "100",
+      "pass_as": "argument"
+    }
+  ]
+}

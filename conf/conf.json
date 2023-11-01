@@ -1,0 +1,15 @@
+{
+  "port": 8080,
+  "title": "WAN Emulator Settings",
+  "access": {
+	"admin_users": [ "192.168.0.0/16", "10.0.0.0/8", "10.255.255.106" ],
+	"trusted_ips": [ "10.0.0.0/8" ]
+  },
+  "logging": {
+    "execution_file": "$DATE-$ID.log",
+    "execution_date_format": "%y-%m-%d_%H-%M"
+  },
+  "security": {
+    "xsrf_protection": "token"
+  }
+}

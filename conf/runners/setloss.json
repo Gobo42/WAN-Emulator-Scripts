@@ -1,0 +1,19 @@
+{
+  "name": "Link Loss",
+  "script_path": "/opt/scripts/setloss",
+  "working_directory": "/opt/scripts",
+  "description": "Set the percentage of packet loss across this link",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Loss (%)",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "100",
+      "pass_as": "argument"
+    }
+  ]
+}

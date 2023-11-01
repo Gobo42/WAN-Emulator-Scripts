@@ -1,0 +1,19 @@
+{
+  "name": "Link Delay",
+  "script_path": "/opt/scripts/setdelay",
+  "working_directory": "/opt/scripts",
+  "description": "Set delay in ms across the link",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Delay (ms)",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "5000",
+      "pass_as": "argument"
+    }
+  ]
+}
