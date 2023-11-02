@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec /usr/bin/python3 /opt/script-server/launcher.py &
+pgrep -f "python.*script-server" > $1

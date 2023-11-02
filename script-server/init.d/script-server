@@ -1,0 +1,8 @@
+#!/sbin/openrc-run
+
+piddir=/var/run
+pidfile=$piddir/$SVCNAME.pid
+command=/opt/script-server/$SVCNAME
+command_args="$pidfile"
+command_background="yes"
+
