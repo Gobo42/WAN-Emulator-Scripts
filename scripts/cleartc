@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ifname="eth1"
+altif="eth2"
 
 echo "0" >loss
 echo "0" >delay
@@ -10,5 +11,6 @@ echo "0" >duplicate
 
 echo "clearing config..."
 `tc qdisc del dev $ifname root netem 2>/dev/null`
+`tc qdisc del dev $altif root netem 2>/dev/null`
 echo "cleared"
 

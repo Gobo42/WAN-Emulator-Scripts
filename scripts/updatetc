@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ifname="eth1"
+altif="eth2"
 loss=$(cat loss)
 delay=$(cat delay)
 duplicate=$(cat duplicate)
@@ -46,6 +47,7 @@ fi
 
 echo "clearing config..."
 `tc qdisc del dev $ifname root netem 2>/dev/null`
+`tc qdisc del dev $altif root netem 2>/dev/null`
 echo "cleared"
 
 echo "setting$str"
@@ -53,5 +55,6 @@ echo "setting$str"
 if [ $changed = 1 ]; then
 #  echo "tc qdisc add dev $ifname root netem$str"
   `tc qdisc add dev $ifname root netem$str`
+  `tc qdisc add dev $altif root netem$str`
 fi
 echo "done."
