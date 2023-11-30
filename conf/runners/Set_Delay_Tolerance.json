@@ -1,0 +1,19 @@
+{
+  "name": "Link Delay Tolerance",
+  "script_path": "/opt/scripts/setdelaytol",
+  "working_directory": "/opt/scripts/",
+  "description": "This is +/- variance in delay in ms",
+  "requires_terminal": false,
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "Delay Tolerance",
+      "required": true,
+      "type": "int",
+      "default": "0",
+      "min": "0",
+      "max": "1000",
+      "pass_as": "argument"
+    }
+  ]
+}

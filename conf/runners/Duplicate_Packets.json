@@ -1,5 +1,5 @@
 {
-  "name": "Duplicate Packets",
+  "name": "Packet Duplication",
   "script_path": "/opt/scripts/setdup",
   "working_directory": "/opt/scripts",
   "description": "Configure duplicate packets on WAN",
