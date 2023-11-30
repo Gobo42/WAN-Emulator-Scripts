@@ -1,0 +1,11 @@
+#!/bin/sh
+
+delay="0"
+
+if [ -z $1 ]; then
+  echo "no argument. setting to 0ms"
+else
+  delay=$1
+fi
+echo $delay > delaytol
+./updatetc

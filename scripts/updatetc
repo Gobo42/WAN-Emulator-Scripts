@@ -2,11 +2,37 @@
 
 ifname="eth1"
 altif="eth2"
-loss=$(cat loss)
-delay=$(cat delay)
-duplicate=$(cat duplicate)
-corrupt=$(cat corrupt)
-reorder=$(cat reorder)
+
+if [ -f loss ]; then 
+    loss=$(cat loss)
+else
+    loss=0
+fi
+if [ -f delay ]; then
+    delay=$(cat delay)
+else
+    delay=0
+fi
+if [ -f delaytol ]; then
+    delaytol=$(cat delaytol)
+else
+    delaytol=0
+fi
+if [ -f duplicate ]; then
+    duplicate=$(cat duplicate)
+else
+    duplicate=0
+fi
+if [ -f corrupt ]; then
+    corrupt=$(cat corrupt)
+else
+    corrupt=0
+fi
+if [ -f reorder ]; then
+    reorder=$(cat reorder)
+else
+    reorder=0
+fi
 str=""
 changed=0
 
@@ -23,6 +49,10 @@ if [ $delay = "0" ]; then
 else
   echo "delay is $delay"
   str=$str" delay "$delay"ms"
+  if [ $delaytol != "0" ]; then
+      echo "delay tolerance is $delaytol"
+      str=$str" "$delaytol"ms"
+  fi
   changed=1
 fi
 if [ $duplicate = "0" ]; then

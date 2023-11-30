@@ -5,6 +5,7 @@ altif="eth2"
 
 echo "0" >loss
 echo "0" >delay
+echo "0" >delaytol
 echo "0" >reorder
 echo "0" >corrupt
 echo "0" >duplicate
