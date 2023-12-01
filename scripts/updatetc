@@ -58,18 +58,21 @@ fi
 if [ $duplicate = "0" ]; then
   echo "no duplication"
 else
+  echo "$duplicate% duplicated packets"
   str=$str" duplicate "$duplicate"%"
   changed=1
 fi
 if [ $corrupt = "0" ]; then
   echo "no corrupted packets"
 else
+  echo "$corrupt% corrupted packets"
   str=$str" corrupt "$corrupt"%"
   changed=1
 fi
 if [ $reorder = "0" ]; then
   echo "no packet reordering"
 else
+  echo "$reorder% reordered packets"
   str=$str" reorder "$reorder"%"
   changed=1
 fi
@@ -78,7 +81,6 @@ fi
 echo "clearing config..."
 `tc qdisc del dev $ifname root netem 2>/dev/null`
 `tc qdisc del dev $altif root netem 2>/dev/null`
-echo "cleared"
 
 echo "setting$str"
 
