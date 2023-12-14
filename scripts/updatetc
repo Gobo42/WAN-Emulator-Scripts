@@ -2,6 +2,7 @@
 
 ifname="eth1"
 altif="eth2"
+thirdif="eth3"
 
 if [ -f loss ]; then 
     loss=$(cat loss)
@@ -81,6 +82,7 @@ fi
 echo "clearing config..."
 `tc qdisc del dev $ifname root netem 2>/dev/null`
 `tc qdisc del dev $altif root netem 2>/dev/null`
+`tc qdisc del dev $thirdif root netem 2>/dev/null`
 
 echo "setting$str"
 
@@ -88,5 +90,6 @@ if [ $changed = 1 ]; then
 #  echo "tc qdisc add dev $ifname root netem$str"
   `tc qdisc add dev $ifname root netem$str`
   `tc qdisc add dev $altif root netem$str`
+  `tc qdisc add dev $thirdif root netem$str`
 fi
 echo "done."
