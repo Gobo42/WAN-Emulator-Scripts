@@ -106,7 +106,7 @@ if [ $changed = 1 ]; then
         continue
       ;;
       *)
-        `tc qdisc add dev $myif root netem$str`
+        `tc qdisc add dev $myif root netem$str $1`
         echo "set $myif"
       ;;
     esac
