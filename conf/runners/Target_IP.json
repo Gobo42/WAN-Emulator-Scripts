@@ -1,0 +1,13 @@
+{
+  "name": "Target IP",
+  "script_path": "/opt/scripts/markip",
+  "output_format": "text",
+  "parameters": [
+    {
+      "name": "IP",
+      "required": true,
+      "type": "ip4",
+      "pass_as": "argument"
+    }
+  ]
+}
