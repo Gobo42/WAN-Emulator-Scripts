@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "$1" >> /opt/scripts/ips
+tc filter add dev ens19 protocol ip parent 1:0 prio 1 u32 match ip dst $1/32 flowid 1:1
+echo "Current list of IPs:"
+cat /opt/scripts/ips

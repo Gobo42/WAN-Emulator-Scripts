@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if grep -q $1 /opt/scripts/ips; then
+  sed -i "/$1/d" /opt/scripts/ips
+  tc filter del dev ens19 protocol ip parent 1:0 prio 1 u32 match ip dst $1/32 flowid 1:1
+else
+  echo "$1 was not found"
+fi
+
+echo "Current list of IPs:"
+cat /opt/scripts/ips
